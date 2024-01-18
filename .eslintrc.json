@@ -26,7 +26,11 @@
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-no-constructed-context-values": "off",
     "react/jsx-no-bind": "off",
+    "react/require-default-props": "off",
     "no-empty": [
       "error",
       {
