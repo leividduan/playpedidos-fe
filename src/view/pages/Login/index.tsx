@@ -14,12 +14,10 @@ export function Login() {
           Entre em sua conta
         </h1>
         <p className="space-x-2">
-          <span className="text-gray-700 tracking-[-0.5px]">
-            Novo por aqui?
-          </span>
+          <span className="text-gray-700 tracking-tight">Novo por aqui?</span>
           <Link
             to="/register"
-            className="tracking-[-0.5px] font-medium text-teal-900"
+            className="tracking-tight font-medium text-grey-900"
           >
             Crie uma conta
           </Link>

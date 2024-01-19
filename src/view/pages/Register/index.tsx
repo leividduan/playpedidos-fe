@@ -15,12 +15,12 @@ export function Register() {
           Crie sua conta
         </h1>
         <p className="space-x-2">
-          <span className="text-gray-700 tracking-[-0.5px]">
+          <span className="text-gray-700 tracking-tight">
             Já possui uma conta?
           </span>
           <Link
             to="/login"
-            className="tracking-[-0.5px] font-medium text-teal-900"
+            className="tracking-tight font-medium text-gray-900"
           >
             Fazer login
           </Link>

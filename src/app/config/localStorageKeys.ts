@@ -1,3 +1,3 @@
 export const localStorageKeys = {
-  ACCESS_TOKEN: 'fincheck:accessToken',
+  ACCESS_TOKEN: 'playpedidos:accessToken',
 };

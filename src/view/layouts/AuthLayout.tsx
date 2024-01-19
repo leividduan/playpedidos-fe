@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
+import { Logo } from '../components/Logo';
+
 export function AuthLayout() {
   return (
     <div className="flex w-full h-full">
@@ -8,11 +10,11 @@ export function AuthLayout() {
           <Outlet />
         </div>
       </div>
-      <div className="w-1/2 h-full justify-center items-center p-8 relative hidden lg:flex">
-        <div className="bottom-8 max-w-[656px] bg-white p-10 absolute rounded-b-[32px] mx-8">
-          <p className="text-gray-700 font-medium text-xl mt-6">
-            Gerencie suas finanças pessoais de uma forma simples com o fincheck,
-            e o melhor, totalmente de graça!
+      <div className="w-1/2 h-full justify-center items-center p-8 flex bg-white">
+        <div className="p-10">
+          <Logo className="text-gray-700 h-10" />
+          <p className="text-gray-600 text-lg tracking-tight mt-2">
+            por aqui suas vendas não tem pause!
           </p>
         </div>
       </div>

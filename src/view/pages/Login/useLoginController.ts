@@ -1,12 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import toast from 'react-hot-toast';
+import { z } from 'zod';
 
-import { authService } from '../../../app/services/authService';
-import { SigninParams } from '../../../app/services/authService/signin';
 import { useAuth } from '../../../app/hooks/useAuth';
+import { authService } from '../../../app/services/authService';
+import { ISigninParams } from '../../../app/services/authService/signin';
 
 const schema = z.object({
   email: z
@@ -30,24 +30,22 @@ export function useLoginController() {
     resolver: zodResolver(schema),
   });
 
-  const { mutateAsync, isLoading } = useMutation({
+  const { mutateAsync, isPending } = useMutation({
     mutationKey: ['signup'],
-    mutationFn: async (data: SigninParams) => {
-      return authService.signin(data);
-    },
+    mutationFn: async (data: ISigninParams) => authService.signin(data),
   });
 
   const { signin } = useAuth();
 
   const handleSubmit = hookFormSubmit(async (data) => {
     try {
-      const { accessToken } = await mutateAsync(data);
+      const { token } = await mutateAsync(data);
 
-      signin(accessToken);
+      signin(token);
     } catch {
       toast.error('Credenciais inválidas');
     }
   });
 
-  return { handleSubmit, register, errors, isLoading };
+  return { handleSubmit, register, errors, isLoading: isPending };
 }

@@ -3,6 +3,7 @@ import React, { createContext, useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 // import { LaunchScreen } from '../../view/components/LaunchScreen';
+import { LaunchScreen } from '../../view/components/LaunchScreen';
 import { localStorageKeys } from '../config/localStorageKeys';
 import { IUser } from '../entities/IUser';
 import { usersService } from '../services/usersService';
@@ -64,7 +65,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signout,
       }}
     >
-      {/* <LaunchScreen isLoading={isFetching} /> */}
+      <LaunchScreen isLoading={isFetching} />
 
       {!isFetching && children}
     </AuthContext.Provider>
