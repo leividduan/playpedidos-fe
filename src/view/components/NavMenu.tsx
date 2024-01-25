@@ -22,6 +22,7 @@ export function NavMenu() {
                   )
                 }
               >
+                <menu.icon className="h-5 w-5" />
                 <span className="ms-3">{menu.name}</span>
               </NavLink>
             </li>
