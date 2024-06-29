@@ -8,7 +8,6 @@ interface IInputProps extends ComponentProps<'input'> {
   error?: string;
 }
 
-// eslint-disable-next-line react/display-name
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
   ({ placeholder, name, id, error, className, ...props }, ref) => {
     const inputId = id ?? name;
