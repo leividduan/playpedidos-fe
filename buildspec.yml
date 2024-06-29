@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+
+  pre-build:
+    commands:
+      - npm pkg delete scripts.prepare
+      - yarn install --frozen-lockfile
+
+  build:
+    commands:
+      - yarn build
