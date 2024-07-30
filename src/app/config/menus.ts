@@ -2,7 +2,7 @@ import {
   ChartBarSquareIcon,
   ShoppingBagIcon,
   TagIcon,
-} from '@heroicons/react/24/outline';
+} from '@heroicons/react/24/solid';
 
 export interface IMenu {
   path: string;

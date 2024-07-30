@@ -7,28 +7,33 @@ import { Logo } from './Logo';
 
 export function NavMenu() {
   return (
-    <aside className="z-40 w-64 h-screen">
-      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-800">
-        <Logo className="h-6 text-white w-full mb-4" />
-        <ul className="space-y-2 font-medium">
-          {menus.map((menu: IMenu) => (
-            <li key={menu.path}>
-              <NavLink
-                to={menu.path}
-                className={({ isActive }) =>
-                  cn(
-                    'flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group',
-                    isActive && 'bg-gray-700',
-                  )
-                }
-              >
-                <menu.icon className="h-5 w-5" />
-                <span className="ms-3">{menu.name}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+    <aside className="relative h-screen flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 w-full max-w-[20rem] p-4 shadow-xl shadow-gray-500/2">
+      <div className="mb-2 p-4">
+        <h5 className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">
+          <Logo className="h-6 text-gray-900" />
+        </h5>
       </div>
+      <nav className="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
+        {menus.map((menu: IMenu) => (
+          <NavLink
+            key={menu.path}
+            to={menu.path}
+            role="button"
+            tabIndex={0}
+            className={({ isActive }) =>
+              cn(
+                'flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-gray-50 hover:bg-opacity-80 focus:bg-gray-100 focus:bg-opacity-80 active:bg-gray-0 active:bg-opacity-80 hover:text-gray-900 focus:text-gray-900 active:text-gray-900 outline-none',
+                isActive && 'bg-gray-50 text-gray-900',
+              )
+            }
+          >
+            <div className="grid place-items-center mr-4">
+              <menu.icon className="h-5 w-5" />
+            </div>
+            {menu.name}
+          </NavLink>
+        ))}
+      </nav>
     </aside>
   );
 }

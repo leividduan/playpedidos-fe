@@ -1,3 +1,5 @@
+import { TableTest } from '../../components/TableTest';
+
 export function Product() {
-  return <h1>Product</h1>;
+  return <TableTest />;
 }

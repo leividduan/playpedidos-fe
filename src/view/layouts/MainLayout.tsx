@@ -15,7 +15,8 @@ export function MainLayout() {
           <h1 className="text-2xl font-bold">{menuName}</h1>
           <UserMenu />
         </header>
-        <div className="px-4 py-4 rounded-lg bg-white h-full">
+        <hr />
+        <div className="h-full">
           <Outlet />
         </div>
       </div>

@@ -23,7 +23,7 @@
     }
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "import/no-extraneous-dependencies": "off",
