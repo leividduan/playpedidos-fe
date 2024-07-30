@@ -11,25 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Use Node.js 20.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.x'
-        cache: 'yarn'
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: 'yarn'
 
-    - run: npm pkg delete scripts.prepare
+      - run: npm pkg delete scripts.prepare
 
-    - name: Install packages
-      run: yarn install --frozen-lockfile
+      - name: Install packages
+        run: yarn install --frozen-lockfile
 
-    - name: Linting
-      run: yarn ci:lint
+      - name: Linting
+        run: yarn ci:lint
 
-    - name: Typechecking
-      run: yarn typecheck
+      - name: Typechecking
+        run: yarn typecheck
 
-    - name: Tests
-      run: yarn ci:test
+      - name: Tests
+        run: yarn ci:test

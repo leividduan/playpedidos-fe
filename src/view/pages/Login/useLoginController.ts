@@ -11,11 +11,11 @@ import { ISigninParams } from '../../../app/services/authService/signin';
 const schema = z.object({
   email: z
     .string()
-    .nonempty('E-mail é obrigatório')
+    .min(1, 'E-mail é obrigatório')
     .email('Informe um e-mail válido'),
   password: z
     .string()
-    .nonempty('Senha é obrigatório')
+    .min(1, 'Senha é obrigatório')
     .min(8, 'Senha deve conter pelo menos 8 dígitos'),
 });
 
