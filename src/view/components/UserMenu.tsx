@@ -1,4 +1,6 @@
+import { BuildingOffice2Icon } from '@heroicons/react/24/outline';
 import { ExitIcon } from '@radix-ui/react-icons';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../app/hooks/useAuth';
 
@@ -6,6 +8,7 @@ import { DropdownMenu } from './DropdownMenu';
 
 export function UserMenu() {
   const { signout, user } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <DropdownMenu.Root>
@@ -17,7 +20,14 @@ export function UserMenu() {
         </div>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content className="w-32">
+      <DropdownMenu.Content className="w-36">
+        <DropdownMenu.Item
+          className="flex items-center justify-between"
+          onSelect={() => navigate('/companies')}
+        >
+          Empresas
+          <BuildingOffice2Icon className="w-5 h-5" />
+        </DropdownMenu.Item>
         <DropdownMenu.Item
           className="flex items-center justify-between"
           onSelect={signout}

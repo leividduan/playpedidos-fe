@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { IMenu, menus } from '../../app/config/menus';
 import { cn } from '../../app/utils/cn';
@@ -6,6 +6,8 @@ import { cn } from '../../app/utils/cn';
 import { Logo } from './Logo';
 
 export function NavMenu() {
+  const location = useLocation();
+
   return (
     <aside className="relative h-screen flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 w-full max-w-[20rem] p-4 shadow-xl shadow-gray-500/2">
       <div className="mb-2 p-4">
@@ -28,7 +30,11 @@ export function NavMenu() {
             }
           >
             <div className="grid place-items-center mr-4">
-              <menu.icon className="h-5 w-5" />
+              {location.pathname === menu.path ? (
+                <menu.iconSolid className="h-5 w-5" />
+              ) : (
+                <menu.icon className="h-5 w-5" />
+              )}
             </div>
             {menu.name}
           </NavLink>

@@ -11,6 +11,8 @@ import { usersService } from '../services/usersService';
 interface IAuthContextValue {
   signedIn: boolean;
   user: IUser | undefined;
+  companyId: string | null;
+  selectCompany: (currentCompanyId: string) => void;
   signin(accessToken: string): void;
   signout(): void;
 }
@@ -28,6 +30,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     return !!storedAccessToken;
   });
+  const [companyId, setCompanyId] = useState<string | null>(() =>
+    localStorage.getItem(localStorageKeys.CURRENT_COMPANY),
+  );
+
+  const selectCompany = useCallback((currentCompanyId: string) => {
+    localStorage.setItem(localStorageKeys.CURRENT_COMPANY, currentCompanyId);
+
+    setCompanyId(currentCompanyId);
+  }, []);
 
   const { isError, isFetching, isSuccess, data } = useQuery({
     queryKey: ['users', 'me'],
@@ -44,8 +55,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signout = useCallback(() => {
     localStorage.removeItem(localStorageKeys.ACCESS_TOKEN);
+    localStorage.removeItem(localStorageKeys.CURRENT_COMPANY);
     queryClient.removeQueries({ queryKey: ['users', 'me'] });
-
+    setCompanyId(null);
     setSignedIn(false);
   }, [queryClient]);
 
@@ -61,8 +73,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       value={{
         signedIn: isSuccess && signedIn,
         user: data,
+        companyId,
         signin,
         signout,
+        selectCompany,
       }}
     >
       <LaunchScreen isLoading={isFetching} />
