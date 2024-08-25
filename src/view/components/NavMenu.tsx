@@ -9,13 +9,13 @@ export function NavMenu() {
   const location = useLocation();
 
   return (
-    <aside className="relative h-screen flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 w-full max-w-[20rem] p-4 shadow-xl shadow-gray-500/2">
+    <aside className="hidden relative h-screen sm:flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 w-full sm:max-w-60 lg:max-w-80 p-4 shadow-xl shadow-gray-500/2">
       <div className="mb-2 p-4">
         <h5 className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">
           <Logo className="h-6 text-gray-900" />
         </h5>
       </div>
-      <nav className="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
+      <nav className="flex flex-col gap-1 w-full p-2 font-sans text-base font-normal text-gray-700">
         {menus.map((menu: IMenu) => (
           <NavLink
             key={menu.path}

@@ -23,10 +23,10 @@ export function Company() {
         </h5>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold text-gray-900 tracking-[-1px] mb-24">
+        <h1 className="text-2xl mb-12 font-bold text-gray-900 tracking-[-1px] sm:text-4xl sm:mb-24">
           Qual ambiente você deseja utilizar?
         </h1>
-        <div className="mb-10 flex gap-10">
+        <div className="mb-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10">
           <CompanyAvatar
             handleOnClick={handleClickSelectCompany}
             name="playpedidos"

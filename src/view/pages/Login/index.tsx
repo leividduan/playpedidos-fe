@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import { Logo } from '../../components/Logo';
 
 import { useLoginController } from './useLoginController';
 
@@ -10,6 +11,7 @@ export function Login() {
   return (
     <>
       <header className="flex flex-col items-center gap-4 text-center">
+        <Logo className="text-gray-700 h-10 mb-8 sm:hidden" />
         <h1 className="text-2xl font-bold text-gray-900 tracking-[-1px]">
           Entre em sua conta
         </h1>

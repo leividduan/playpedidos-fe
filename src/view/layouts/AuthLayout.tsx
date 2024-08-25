@@ -10,7 +10,7 @@ export function AuthLayout() {
           <Outlet />
         </div>
       </div>
-      <div className="w-1/2 h-full justify-center items-center p-8 flex bg-white">
+      <div className="hidden sm:w-1/2 h-full justify-center items-center p-8 sm:flex bg-white">
         <div className="p-10">
           <Logo className="text-gray-700 h-10" />
           <p className="text-gray-600 text-lg tracking-tight mt-2">
