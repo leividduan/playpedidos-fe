@@ -1,19 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-
-import { useAuth } from '../../../app/hooks/useAuth';
-import { Button } from '../../components/Button';
 import { Logo } from '../../components/Logo';
 
 import { CompanyAvatar } from './components/CompanyAvatar';
+import { NewCompany } from './components/NewCompany';
+import { useCompanyController } from './useCompanyController';
 
 export function Company() {
-  const { selectCompany } = useAuth();
-  const navigate = useNavigate();
-
-  function handleClickSelectCompany(currentCompanyId: string) {
-    selectCompany(currentCompanyId);
-    navigate('/');
-  }
+  const { companies, isLoading, handleClickSelectCompany } =
+    useCompanyController();
 
   return (
     <div className="h-full w-full">
@@ -27,34 +20,16 @@ export function Company() {
           Qual ambiente você deseja utilizar?
         </h1>
         <div className="mb-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10">
-          <CompanyAvatar
-            handleOnClick={handleClickSelectCompany}
-            name="playpedidos"
-          />
-          <CompanyAvatar
-            handleOnClick={handleClickSelectCompany}
-            name="lojinha da neide"
-          />
-          <CompanyAvatar
-            handleOnClick={handleClickSelectCompany}
-            name="lojinha da gisele"
-          />
-          <CompanyAvatar
-            handleOnClick={handleClickSelectCompany}
-            name="lojinha do zeca"
-          />
-          <CompanyAvatar
-            handleOnClick={handleClickSelectCompany}
-            name="lojinha do anibal"
-          />
-          <CompanyAvatar
-            handleOnClick={handleClickSelectCompany}
-            name="lojinha da cleide"
-          />
+          {!isLoading &&
+            companies?.map((company) => (
+              <CompanyAvatar
+                key={company.id}
+                handleOnClick={handleClickSelectCompany}
+                name={company.name}
+              />
+            ))}
+          <NewCompany />
         </div>
-        <Button type="button" onClick={() => handleClickSelectCompany('Teste')}>
-          Nova empresa
-        </Button>
       </div>
     </div>
   );

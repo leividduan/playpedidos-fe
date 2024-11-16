@@ -11,7 +11,7 @@ export function CompanyAvatar({ name, handleOnClick }: ICompanyAvatarProps) {
       tabIndex={0}
       onClick={() => handleOnClick(name)}
     >
-      <div className="bg-gray-100 rounded-full w-32 h-32 flex items-center justify-center border border-gray-200">
+      <div className="bg-gray-50 rounded-full w-32 h-32 flex items-center justify-center border border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 transition-all">
         <span className="text-4xl tracking-tight text-gray-900 font-medium">
           {name.slice(0, 2).toUpperCase()}
         </span>
